@@ -38,13 +38,13 @@
  * Output: [0, 1]
  */
 
+const nums = [2, 7, 11, 15]
+const target = 9
+
 /**
  * 暴力破解法(Brute Force):
  * 使用for迴圈，一個一個跑
  */
-
-const nums = [2, 7, 11, 15]
-const target = 9
 
 const twoSum = (nums, target) => {
   for (let i = 0; i < nums.length; i++) {
@@ -55,4 +55,26 @@ const twoSum = (nums, target) => {
   }
 }
 
-// twoSum(nums, target)
+/**
+ * Map 實作:
+ * 用Ｍap紀錄
+ * 直覺會想說要存key，value
+ * 但是最後題目是要回傳value，之後方便get得到值
+ * set(key,value)將資料加入表格
+ * get(key)用key得到value
+ * x!=Mymap.get(goal)預防x數字重複使用
+ */
+
+const twoSumMap = (nums, target) => {
+  let allNums = new Map()
+  for (let i = 0; i < nums.length; i++) {
+    allNums.set(nums[i], i)
+  }
+
+  for (let j = 0; j < nums.length; i++) {
+    let remainder = target - nums[j]
+    if (allNums.has(remainder) && j != allNums.get(remainder))
+      console.log(j, allNums.get(remainder))
+      return [j, allNums.get(remainder)]
+  }
+}
