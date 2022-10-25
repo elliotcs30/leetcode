@@ -78,3 +78,23 @@ const twoSumMap = (nums, target) => {
       return [j, allNums.get(remainder)]
   }
 }
+
+/**
+ * Object 實作：
+ * 用object紀錄
+ * 直覺會想說要存key，value
+ * 但是最後題目是要回傳value，之後方便get得到值
+ * 設定值 dict[key] value
+ * in 用法是看 remainder 值有沒有在 dict 的 key, 若有就回傳 true
+ * j !== dict[remainder] 預防 j 的數字重複使用
+ */
+const twoSumObject = (nums, target) => {
+  const dict = {}
+  for (let i = 0; i < nums.length; i++) dict[nums[i]] = i
+
+  for (let j = 0; j < nums.length; j++) {
+    let remainder = target - nums[j]
+
+    if (remainder in dict && j !== dict[remainder]) return [j, dict[remainder]]
+  }
+}
