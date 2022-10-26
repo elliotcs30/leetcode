@@ -49,7 +49,7 @@ const target = 9
 const twoSum = (nums, target) => {
   for (let i = 0; i < nums.length; i++) {
     let remainder = target - nums[i]
-    for (let j = i+1; j <= nums.length; j++) {
+    for (let j = i + 1; j <= nums.length; j++) {
       if (nums[j] === remainder) return [i, j]
     }
   }
@@ -74,7 +74,6 @@ const twoSumMap = (nums, target) => {
   for (let j = 0; j < nums.length; i++) {
     let remainder = target - nums[j]
     if (allNums.has(remainder) && j != allNums.get(remainder))
-      console.log(j, allNums.get(remainder))
       return [j, allNums.get(remainder)]
   }
 }
