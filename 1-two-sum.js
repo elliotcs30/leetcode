@@ -71,7 +71,7 @@ const twoSumMap = (nums, target) => {
     allNums.set(nums[i], i)
   }
 
-  for (let j = 0; j < nums.length; i++) {
+  for (let j = 0; j < nums.length; j++) {
     let remainder = target - nums[j]
     if (allNums.has(remainder) && j != allNums.get(remainder))
       return [j, allNums.get(remainder)]
