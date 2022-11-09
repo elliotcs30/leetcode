@@ -53,26 +53,26 @@ const mergeTwoLists1 = function (l1, l2) {
  * 要使用以下解法：
  */
 const mergeTwoLists2 = function (l1, l2) {
-  let headNode = new ListNode(0);
-  let currentNode = headNode;
+  let headNode = new ListNode(0)
+  let currentNode = headNode
 
   while (l1 !== null && l2 !== null) {
     if (l1.val < l2.val) {
-      currentNode.next = l1;
-      l1 = l1.next;
+      currentNode.next = l1
+      l1 = l1.next
     } else {
-      currentNode.next = l2;
-      l2 = l2.next;
+      currentNode.next = l2
+      l2 = l2.next
     }
-    currentNode = currentNode.next;
+    currentNode = currentNode.next
   }
  
   if (l1 === null) {
-    currentNode.next = l2;
+    currentNode.next = l2
   } else if (l2 === null) {
-    currentNode.next = l1;
+    currentNode.next = l1
   }
-  return headNode.next;
-};
+  return headNode.next
+}
 
 mergeTwoLists2(list1, list2)
