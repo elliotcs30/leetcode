@@ -6,7 +6,7 @@
  * Given an integer x, return true if x is a palindrome, and false otherwise.
  *
  * 題目翻譯：
- * 給予一個整數 x，如果 x 是一個回文的話，回傳 true，否則回傳 false。
+ * 給予一個整數x，如果 x 的值正向與反向皆相同的話，則回傳 true，否則回傳 false。
  */
 
 /**
@@ -46,15 +46,14 @@
  * return a === b
  */
 
-const isPalindrome = function(x) {
+const isPalindrome = x => {
   if (x < 0) return false
   
-    let number = x
-    let reverse = 0
-    while (number > 0) {
-      reverse = reverse * 10 + number % 10
-      number = parseInt(number / 10)
-    }
-    
-    return x === reverse
+  let number = x
+  let reverse = 0
+  while (number > 0) {
+    reverse = reverse * 10 + number % 10
+    number = parseInt(number / 10)
+  }
+  return x === reverse
 }
