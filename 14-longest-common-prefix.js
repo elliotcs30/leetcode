@@ -33,12 +33,12 @@
  * 如果相符放入 prefix 陣列，不相符及回傳當前的 prefix
  */
 
-const longestCommonPrefix = function(strs) {
+const longestCommonPrefix = (strs) => {
     if (!strs.length) return ""
     let prefix = ""
     for (let i = 0; i < strs[0].length; i++) {
         for (let j = 0; j < strs.length - 1; j++) {
-            if (strs[j][i] !== strs[j+1][i]) return prefix;
+            if (strs[j][i] !== strs[j+1][i]) return prefix
         }
         prefix += strs[0][i]
     }
