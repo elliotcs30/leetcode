@@ -9,7 +9,6 @@
  */
 
 
-
 /**
  * Example 1:
  * 
@@ -26,24 +25,24 @@
 
 /**
  * 思路：
- * 1. 由上方可觀察出陣列中的數字由大到小排列, 再將 0 靠右排列
- * 2. 因此我們可以使用陣列取出兩兩數值做比對
- * 3. 如果前面數值比後面大, 就前後交換
- * 4. 
+ * 1. 由題目中可以了解到此為一整數陣列, 將 0 移動到右側底端
+ * 2. 設計當遇到 0 值時, 就將該數值移出陣列, 並將該數值放入陣列最後方
+ * 3. 移出陣列的數值可使用 splice, 移入陣列可以使用 push 
  */
 
 /**
  * @param {number[]} nums
  * @return {void} Do not return anything, modify nums in-place instead.
  */
-var moveZeroes = function (nums) {
-  let x = 0;
-  for (let i = 0; i < nums.length - x; i++) {
+
+// let nums = [0, 1, 0, 3, 12]
+
+const moveZeroes = function (nums) {
+  for (let i = 0; i < nums.length; i++) {
     if (nums[i] === 0) {
-      nums.push(parseInt(nums.splice(i, 1).join('')));
-      i--;
-      x++;
+      nums.splice(i, 1)
+      nums.push(0)
     }
   }
-  return nums;
-};
+  return nums
+}
