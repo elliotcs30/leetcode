@@ -31,8 +31,5 @@
  */
 
 const addDigits = function(num) {
-  if (num < 10) return num
-
-  num = num.toString().split("").map(x => parseInt(x)).reduce((a,b) => a+b)
-  return addDigits(num)
+  return 1 + (num - 1) % 9
 }
