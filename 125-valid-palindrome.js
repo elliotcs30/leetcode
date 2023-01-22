@@ -49,13 +49,38 @@
  * 反轉字串判斷與上一個步驟處理過的字串相等
  */
 
-const isPalindrome = str => {
-  //轉小寫
-  str = str.toLowerCase()
-  //取代非文字部分
-  str = str.replace(/[^a-z0-9]/ig, "")
-  //反轉
-  let reverseStr = str.split("").reverse().join("")
-  //判斷反轉後是否與之前處理過的字串相等
-  return str.indexOf(reverseStr) === 0
+// 寫法1
+// const isPalindrome = str => {
+//   //轉小寫
+//   str = str.toLowerCase()
+//   //取代非文字部分
+//   str = str.replace(/[^a-z0-9]/ig, "")
+//   //反轉
+//   let reverseStr = str.split("").reverse().join("")
+//   //判斷反轉後是否與之前處理過的字串相等
+//   return str.indexOf(reverseStr) === 0
+// }
+
+// 寫法 2
+var isPalindrome = function(s) {
+  var i = 0
+  var j = s.length - 1
+  var m = ''
+  var n = ''
+  while (i < j) {
+    m = s[i].toLowerCase()
+    n = s[j].toLowerCase()
+    if (!isLetterOrDigit(m)) i++
+    else if (!isLetterOrDigit(n)) j--
+    else if (m === n) { 
+      i++
+      j--
+    }
+    else return false
+  }
+  return true
+}
+
+var isLetterOrDigit = function (c) {
+  return (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9')
 }
