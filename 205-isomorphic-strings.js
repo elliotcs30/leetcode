@@ -32,27 +32,37 @@
  */
 
 /**
+ * 翻譯：
+ * 
+ * 給兩個字串 s, t 判斷他們是否是同構字。
+ * 如果他們是同構字, 表示 s 裡面每個字元都可以拿來對應 t 的特定字元。
+ * 全部的字元都要依順序來被取代, 而且 s 一種字元可會對應 t 的一種字元, 也可能對應到自己相同的字元。
+ */
+
+/**
+ * 思路：
+ * 1. 先比對 s 字串中有重複的字元, 將字元位置紀錄
+ * 2. 再與 t 字串中有重複的字元位置做比對
+ */
+
+/**
  * @param {string} s
  * @param {string} t
  * @return {boolean}
  */
+
+let s = "foo", t = "bar"
+
 const isIsomorphic = function(s, t) {
-  let mapS = {}
-  let mapT = {}
+  if (s.length !== t.length) return false
 
-  for (let i in s) {
-    let valueS = s[i]
-    let valueT = t[i]
+  let objectS = {}, objectT = {}
 
-    if (!mapS[valueS]) {
-      mapS[valueS] = valueT
-    } else if (mapS[valueS] != valueT) { 
-      return false
-    }
-
-    if (!mapT[valueT]) {
-      mapT[valueT] = valueS
-    } else if (mapT[valueT] != valueS) { 
+  for (let i = 0; i < s.length; i++) {
+    if (objectS[s[i]] === objectT[t[i]]) {
+      objectS[s[i]] = i
+      objectT[t[i]] = i
+    } else {
       return false
     }
   }
