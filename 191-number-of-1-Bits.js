@@ -50,7 +50,7 @@ const hammingWeight = function (n) {
   let sum = 0
   while (n !== 0) {
     sum++
-    n &= n - 1
+    n &= n - 1 // 每個 bit 做 AND 的結果
   }
   return sum
 }
