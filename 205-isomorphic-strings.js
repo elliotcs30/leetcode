@@ -59,12 +59,34 @@ const isIsomorphic = function(s, t) {
   let objectS = {}, objectT = {}
 
   for (let i = 0; i < s.length; i++) {
-    if (objectS[s[i]] === objectT[t[i]]) {
+    if (objectS[s[i]] !== objectT[t[i]]) {
+      return false
+    } else {
       objectS[s[i]] = i
       objectT[t[i]] = i
-    } else {
-      return false
     }
   }
   return true
 }
+
+// Input: s = "egg", t = "add"
+// Output: true
+// objectS['e'], objectT['a']
+// {e: 0},       {a: 0},
+
+// objectS['g'], objectT['d']
+// {e: 0, g: 1}, {a: 0, d: 1},
+
+// objectS['g'], objectT['d']
+// {e: 0, g: 1}, {a: 0, d: 1}, // 1, 1
+
+// Input: s = "foo", t = "bar"
+// Output: false
+// objectS['f'], objectT['b']
+// {f: 0},       {b: 0},
+
+// objectS['o'], objectT['a']
+// {f: 0, o: 1}, {b: 0, a: 1},
+
+// objectS['o'], objectT['r']
+// {f: 0, o: 1}, {b: 0, a: 1}, // 1, undefined
