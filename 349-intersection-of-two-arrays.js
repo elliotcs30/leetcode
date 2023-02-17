@@ -34,13 +34,30 @@
 
 Input: nums1 = [1, 2, 2, 1], nums2 = [2, 2]
 
-const intersection = function(nums1, nums2) {
-  let result = []
+// const intersection = function(nums1, nums2) {
+//   let result = []
+//   for (let i = 0; i < nums1.length; i++) {
+//     for (let j = 0; j < nums2.length; j++) {
+//       nums1[i] === nums2[j] ? result.push(nums1[i]) : null
+//     }
+//   }
+//   return [...new Set(result)] // Array 刪除重複元素的方式
+// }
 
-  for (let i = 0; i < nums1.length; i++) {
-    for (let j = 0; j < nums2.length; j++) {
-      if (nums1[i] === nums2[j]) result.push(nums1[i])
+// new solution:
+const intersection = function(nums1, nums2) {
+  let set1 = new Set(nums1)
+  let arr1 = [...set1]
+  let set2 = new Set(nums2)
+  let arr2 = [...set2]
+  let ans = []
+
+  for (let i = 0; i < arr1.length; i++) {
+    if (set2.has(arr1[i])) {
+      ans.push(arr1[i])
     }
   }
-  return [...new Set(result)] // Array 刪除重複元素的方式
+  return ans
 }
+
+intersection([1, 2, 2, 1],  [2, 2])
