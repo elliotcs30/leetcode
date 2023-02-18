@@ -6,6 +6,10 @@
  * Given an integer num, return the number of steps to reduce it to zero.
  * 
  * In one step, if the current number is even, you have to divide it by 2, otherwise, you have to subtract 1 from it.
+ * 
+ * 翻譯:
+ * 給予一個整數 num, 返回這個數字變成 0 所需要的步數。
+ * 如果當前數字是偶數, 需要把它除以 2, 否則減去 1。
  */
 
 /**
