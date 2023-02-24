@@ -21,7 +21,7 @@
 /**
  * Example 1:
  * 
- * Input: g = [1,2,3], s = [1,1]
+ * Input: g = [1, 2, 3], s = [1, 1]
  * Output: 1
  * 
  * Explanation: 
@@ -36,7 +36,7 @@
 /**
  * Example 2:
  * 
- * Input: g = [1,2], s = [1,2,3]
+ * Input: g = [1, 2], s = [1, 2, 3]
  * Output: 2
  * 
  * Explanation: 
@@ -47,7 +47,7 @@ You need to output 2.
 
 /**
  * 解題方法：
- * 使用貪婪法，將g和s都由小到大排序，每次都從最小需求度的小孩和餅乾開始比對，
+ * 使用貪婪法，將 g 和 s 都由小到大排序，每次都從最小需求度的小孩和餅乾開始比對，
  * 如果目前小孩的需求度無法滿足，就挑下一個餅乾。最終能計算有幾位小朋友得到餅乾。
  */
 
@@ -66,11 +66,12 @@ const findContentChildren = function(g, s) {
 
   for (let i = 0; i < s.length; i++) {
     if(g[count] <= s[i]) {
-      // [1]    ,  [1]
+      // [1]    ,  [1]  V
       // [2]    ,  [1]  X
 
       count++ // 1, 
     }
   }
+  
   return count
 };
