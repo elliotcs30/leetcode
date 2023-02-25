@@ -56,22 +56,20 @@ You need to output 2.
  * @param {number[]} s
  * @return {number}
  */
-let g = [1, 2, 3], s = [1, 1]
+let g = [1, 2, 3], s = [3, 3]
 
-const findContentChildren = function(g, s) {
-  g.sort((a, b) => a - b) // [ 1, 2, 3 ]
-  s.sort((a, b) => a - b) // [ 1, 1 ]
-
+var findContentChildren = function(g, s) {
+  g.sort((a, b) => a - b)
+  s.sort((a, b) => a - b)
   let count = 0
 
   for (let i = 0; i < s.length; i++) {
-    if(g[count] <= s[i]) {
-      // [1]    ,  [1]  V
-      // [2]    ,  [1]  X
-
-      count++ // 1, 
+    if(g[count] <= s[i]) { 
+      // g[0]= 1, s[0] = 3,  V
+      // g[1]= 2, s[1] = 3,  V
+      // g[2]= 3,         ,  X
+      count++ 
     }
   }
-  
   return count
-};
+}
