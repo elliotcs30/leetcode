@@ -32,9 +32,19 @@ Output: [0,1]
 #     def twoSum(self, nums: List[int], target: int) -> List[int]:
 
 
+# class Solution(object):
+#     def twoSum(self, nums, target):
+#         for i in range(len(nums)):
+#             for j in range(i+1, len(nums)):
+#                 if nums[i] + nums[j] == target:
+#                     return [i, j]
+                
 class Solution(object):
     def twoSum(self, nums, target):
+        d = {}
         for i in range(len(nums)):
-            for j in range(i+1, len(nums)):
-                if nums[i] + nums[j] == target:
-                    return [i, j]
+            num1 = nums[i]
+            num2 = target - num1
+            if num2 in d:
+                return [d[num2], i]
+            d[num1] = i
