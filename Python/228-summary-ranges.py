@@ -51,6 +51,6 @@ class Solution(object):
     result = []
     for i in range(1, len(nums)+1):
       if i == len(nums) or nums[i] - nums[i-1] != 1:
-        result.append( '->'.join(map(str,[nums[start], nums[i-1]])) if nums[start] != nums[i-1] else str(nums[i-1]))
+        result.append('->'.join(map(str,[nums[start], nums[i-1]])) if nums[start] != nums[i-1] else str(nums[i-1]))
         start = i
     return result
