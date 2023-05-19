@@ -34,6 +34,7 @@ Output: [0,1]
 
 # 想法 1:
 # 把陣列中的數字兩兩相加，只要是等於 target 的值，那就回傳當前數字的位置。
+# 此方法會使用兩個 for 迴圈，因此時間複雜度為 BigO(n^2)。
 
 # pseudocode:
 # if nums[i] + nums[j] == target:
@@ -48,3 +49,22 @@ class Solution(object):
             for j in range(i + 1, len(nums)):
                 if nums[i] + nums[j] == target:
                     return [i, j]
+
+# 想法 2:
+# 思考優化解:
+# 試想是否可以用一次的 for 迴圈來達成。
+
+# pseudocode:
+# result = []
+# if target - nums[i] == nums[i + 1]
+#   result.append([i, i + 1])
+
+class Solution(object):
+    def twoSum(self, nums, target):
+        result = {}
+        for i in range(len(nums)):
+            num1 = nums[i]
+            num2 = target - num1
+            if num2 in result:
+                return [result[num2], i]
+            result[num1] = i
