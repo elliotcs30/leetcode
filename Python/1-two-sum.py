@@ -68,3 +68,35 @@ class Solution(object):
             if num2 in result:
                 return [result[num2], i]
             result[num1] = i
+            
+# 想法 3:
+# 參考優化解:
+# 利用半個迴圈 + 雙指針(測試會過，submit不會過，但是可以參考思維)
+
+# pseudocode:
+# i = 0
+# j = len(nums) - 1
+# while ...:
+#     if ...:
+#         i = i + 1
+#     else:
+#         j = j - 1
+
+# 利用雙指針的方式
+# while (nums[i] + nums[j] != target):
+#     if (nums[i] + nums[j] > target):
+#         j = j - 1
+#     else:
+#         i = i + 1
+
+class Solution(object):
+    def twoSum(self, nums, target):
+        i = 0
+        j = len(nums) - 1
+        
+        while (nums[i] + nums[j] != target):
+            if (nums[i] + nums[j] > target):
+                j = j - 1
+            else:
+                i = i + 1
+        return [i, j]
