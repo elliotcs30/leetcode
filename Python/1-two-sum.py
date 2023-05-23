@@ -100,3 +100,12 @@ class Solution(object):
             else:
                 i = i + 1
         return [i, j]
+
+# 參考解法:
+class Solution:
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        if len(numbers) == 2: return [0,1]
+        for i in range(len(numbers)-1, -1, -1):
+            for j in range(i-1, -1, -1):
+                if numbers[i] + numbers[j] == target:
+                    return [j, i]
