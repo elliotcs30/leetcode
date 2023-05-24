@@ -109,3 +109,14 @@ class Solution:
             for j in range(i-1, -1, -1):
                 if numbers[i] + numbers[j] == target:
                     return [j, i]
+
+# 參考解法:
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        num_dict = {}
+        for i, num in enumerate(nums):
+            complement = target - num
+            if complement in num_dict:
+                return [num_dict[complement], i]
+            num_dict[num] = i
+        return []
